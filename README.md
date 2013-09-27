@@ -1,4 +1,4 @@
-t4dredesign
+Tuss4 Dzigns Redesign Project
 ===========
 
 Redesign project for tuss4dzigns.com
