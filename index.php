@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="assets/css/normalize.css" />
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="assets/css/style-index.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<title>Tuss4 Dzigns</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Tuss4 Dzigns</a>
+			</div>
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Portfolio</a></li>
+					<li><a href="#">Videos</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="page-header">
+			<h1>Tuss4 <small>Software Developer - Martial Artist - CG Artist</small></h1>
+		</div>
+		<div class="jumbotron">
+			<p>I can put projects or Logo in here</p>
+		</div>
+		<div class="container">
+			<p>What it dew homie!</p>
+		</div>
+		<nav class="navbar navbar-default navbar-fixed-bottom">
+			<p class="navbar-text pull-right">&copy; 2013 Tomjo Soptame</p>
+		</nav>
+	</body>
+</html>
