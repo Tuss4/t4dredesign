@@ -3,6 +3,7 @@ body {
 	padding-bottom: 70px;
 }
 #vid_overlay {
+	padding-top: 70px;
 	position: fixed;
 	background-color: rgba(0,0,0,0.8);
 	top: 0;
@@ -13,4 +14,8 @@ body {
 	color: #fff;
 	text-align: center;
 	display: none;
+}
+iframe {
+	border: 0;
+	max-width: 100%;
 }
