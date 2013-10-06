@@ -2,3 +2,15 @@ body {
 	padding-top: 70px;
 	padding-bottom: 70px;
 }
+#vid_overlay {
+	position: fixed;
+	background-color: rgba(0,0,0,0.8);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	color: #fff;
+	text-align: center;
+	display: none;
+}

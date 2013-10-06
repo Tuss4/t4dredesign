@@ -1,12 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="col-md-12">
-	<table class="table table-bordered table-striped">
-		{% for v in vids %}
-		<tr>
-			<td>{{ v|safe }}</td>
-		</tr>
-		{% endfor %}
-	</table>
+<script src="/static/js/script-videos.js" type="text/javascript"></script>
+<div class="row">
+	<div class="col-md-12">
+		<table class="table table-bordered table-striped">
+			{% for v in vids %}
+			<tr>
+				<td><a class="ovid" onclick="changeThisId('{{ v.video_id }}')"><img src="{{ v.thumbnail }}" alt="{{ v.title }}" title="{{ v.title }}" class="img-responsive" /></a></td>
+				<td>
+					<h3>{{ v.title }}</h3>
+					<p>
+						{{ v.description|safe|linebreaks }}
+					</p>
+					<p>
+						Watch on <a href="{{ v.url }}" target="_blank">YouTube</a> or click the Thumbnail to go into theater mode.
+					</p>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+<div class="row">
+	<div id="vid_overlay" class="col-md-12">
+		<iframe id="ytplayer" width="720" height="480" src="http://www.youtube.com/embed/"></iframe>
+	</div>
 </div>
 {% endblock %}

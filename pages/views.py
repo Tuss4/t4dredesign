@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
+from videos.models import Video
 import urllib2, json
 
 
@@ -19,17 +20,23 @@ def portfolio(request):
 
 
 def videos(request):
-	url = 'https://gdata.youtube.com/feeds/api/users/tuss4dzigns/uploads?alt=json&orderby=published'
+	url = 'https://gdata.youtube.com/feeds/api/users/tuss4dzigns/uploads?alt=json&orderby=published&max-results=50'
 	req = urllib2.Request(url)
 	response = urllib2.urlopen(req)
 	feed = response.read()
 	data = json.loads(feed)
-	vids = []
 	for i in data['feed']['entry']:
-		vids.append("<img src='"+i['media$group']['media$thumbnail'][0]['url']+"' alt='"+i['title']['$t']+"' title='"+i['title']['$t']+"' class='img-responsive' /><br />")
-		v = True
+		vid = Video()
+		vid.video_id = i['id']['$t'][42:]
+		vid.thumbnail = i['media$group']['media$thumbnail'][0]['url']
+		vid.url = 'http://youtube.com/watch?v='+i['id']['$t'][42:]
+		vid.title =i['title']['$t']
+		vid.description = i['content']['$t']
+		if not Video.objects.filter(video_id=vid.video_id).exists():
+			vid.save()
+	v = True
 	context = {
-		"vids": vids,
+		"vids": Video.objects.all(),
 		"v": v
 	}
 	return render(request, 'pages/videos.html', context)
