@@ -8,6 +8,11 @@ from django.conf.urls.static import static
 
 urlpatterns = patterns('',
 	url(r'^$', 'tuss4.views.main'),
+	url(r'^about/$','pages.views.about'),
+	url(r'^contact/$','pages.views.contact'),
+	url(r'^portfolio/$','pages.views.portfolio'),
+	url(r'^videos/$','pages.views.videos'),
+	url(r'^repos/$', 'pages.views.repos')
     # Examples:
     # url(r'^$', 'tuss4.views.home', name='home'),
     # url(r'^tuss4/', include('tuss4.foo.urls')),
