@@ -3,4 +3,8 @@ from django.shortcuts import render
 
 
 def main(request):
-	return render(request, 'main.html')
+	h = True
+	context = {
+		"h": h
+	}
+	return render(request, 'main.html', context)

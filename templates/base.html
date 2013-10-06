@@ -23,19 +23,19 @@
 			</div>
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="/">Home</a></li>
-					<li><a href="/about/">About</a></li>
+					<li {% if h %}class="active"{% endif %}><a href="/">Home</a></li>
+					<li {% if a %}class="active"{% endif %}><a href="/about/">About</a></li>
 					<li><a href="/contact/">Contact</a></li>
 					<li><a href="http://tuss4dzigns.com/blog">Blog</a></li>
-					<li class="dropdown">
+					<li class="dropdown  {% if g %}active{% endif %}">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="/portfolio/">CG Portfolio</a></li>
 							<li class="separator"></li>
-							<li><a href="/repos/">GitHub Repos</a></li>
+							<li {% if g %}class="active"{% endif %}><a href="/repos/">GitHub Repos</a></li>
 						</ul>
 					</li>
-					<li><a href="/videos/">Videos</a></li>
+					<li {% if v %}class="active"{% endif %}><a href="/videos/">Videos</a></li>
 				</ul>
 			</div>
 		</nav>
