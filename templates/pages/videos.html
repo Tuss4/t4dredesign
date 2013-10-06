@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-md-12">
+	<table class="table table-bordered table-striped">
+		{% for v in vids %}
+		<tr>
+			<td>{{ v|safe }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

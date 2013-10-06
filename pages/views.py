@@ -4,8 +4,7 @@ import urllib2, json
 
 
 def about(request):
-	pass
-
+	return render(request, 'pages/about.html')
 
 def contact(request):
 	pass
@@ -23,8 +22,11 @@ def videos(request):
 	data = json.loads(feed)
 	vids = []
 	for i in data['feed']['entry']:
-		vids.append("<img src='"+i['media$group']['media$thumbnail'][0]['url']+"' alt='"+i['title']['$t']+"' title='"+i['title']['$t']+"' /><br />")
-	return HttpResponse(vids)
+		vids.append("<img src='"+i['media$group']['media$thumbnail'][0]['url']+"' alt='"+i['title']['$t']+"' title='"+i['title']['$t']+"' class='img-responsive' /><br />")
+	context = {
+		"vids": vids
+	}
+	return render(request, 'pages/videos.html', context)
 
 
 def repos(request):
@@ -33,8 +35,10 @@ def repos(request):
 	response = urllib2.urlopen(req)
 	feed = response.read()
 	data = json.loads(feed)
-	vids = ["<ul>"]
+	vids = []
 	for i in data:
 		vids.append("<li><a href='"+i['html_url']+"'>"+i['name']+"</a></li>")
-	vids.append("</ul>")
-	return HttpResponse(vids)	
+	context = {
+		"repos": vids
+	}
+	return render(request, "pages/repos.html", context)	
