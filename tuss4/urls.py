@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+	url(r'^$', 'tuss4.views.main'),
     # Examples:
     # url(r'^$', 'tuss4.views.home', name='home'),
     # url(r'^tuss4/', include('tuss4.foo.urls')),
