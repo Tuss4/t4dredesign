@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
+from pages.forms import Contact
 from videos.models import Video
 import urllib2, json
 
@@ -12,7 +13,10 @@ def about(request):
 	return render(request, 'pages/about.html', context)
 
 def contact(request):
-	pass
+	context = {
+		"form": Contact()
+	}
+	return render(request, 'pages/contact.html', context)
 
 
 def portfolio(request):
