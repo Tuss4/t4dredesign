@@ -32,6 +32,7 @@ def videos(request):
 		vid.url = 'http://youtube.com/watch?v='+i['id']['$t'][42:]
 		vid.title =i['title']['$t']
 		vid.description = i['content']['$t']
+		vid.date = i['published']['$t']
 		if not Video.objects.filter(video_id=vid.video_id).exists():
 			vid.save()
 	v = True

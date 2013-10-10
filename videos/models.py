@@ -7,6 +7,10 @@ class Video(models.Model):
 	url = models.CharField(max_length=200)
 	title = models.CharField(max_length=200)
 	description = models.TextField()
+	date = models.DateTimeField(null=True, blank=True)
 
 	def __unicode__(self):
 		return unicode(self.title)
+
+	class Meta:
+		ordering = ['-date']
