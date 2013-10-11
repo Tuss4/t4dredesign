@@ -3,6 +3,7 @@ from django.shortcuts import render
 from pages.forms import Contact
 from videos.models import Video
 import urllib2, json
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def about(request):
@@ -40,8 +41,18 @@ def videos(request):
 		if not Video.objects.filter(video_id=vid.video_id).exists():
 			vid.save()
 	v = True
+	v_list = Video.objects.all()
+	paginator = Paginator(v_list, 5)
+
+	page = request.GET.get('page')
+	try:
+		vs = paginator.page(page)
+	except PageNotAnInteger:
+		vs = paginator.page(1)
+	except EmptyPage:
+		vs = paginator.page(paginator.num_pages)
 	context = {
-		"vids": Video.objects.all(),
+		"vids": vs,
 		"v": v
 	}
 	return render(request, 'pages/videos.html', context)
