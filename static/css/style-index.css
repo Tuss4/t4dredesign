@@ -19,3 +19,8 @@ iframe {
 	border: 0;
 	max-width: 100%;
 }
+.pag-link {
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+}
