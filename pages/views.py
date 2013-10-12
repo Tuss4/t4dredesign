@@ -4,6 +4,7 @@ from pages.forms import Contact
 from videos.models import Video
 import urllib2, json
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.mail import send_mail
 
 
 def about(request):
@@ -14,8 +15,23 @@ def about(request):
 	return render(request, 'pages/about.html', context)
 
 def contact(request):
+	form = Contact()
+	if request.method == 'POST':
+		form = Contact(request.POST)
+		if form.is_valid():
+			data = form.cleaned_data
+			send_mail(
+				data['subject']
+				, data['message']+'\n'+data['email']
+				, 'tjs@tuss4.webfactional.com'
+				, ['tuss4dbfn@gmail.com']
+				, fail_silently=False
+				)
+			return HttpResponseRedirect('/')
+		else:
+			return HttpResponse("Yeah that stuff wasn't valid, dude.")
 	context = {
-		"form": Contact()
+		"form": form
 	}
 	return render(request, 'pages/contact.html', context)
 
