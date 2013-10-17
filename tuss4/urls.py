@@ -13,6 +13,8 @@ urlpatterns = patterns('',
 	url(r'^portfolio/$','pages.views.portfolio'),
 	url(r'^videos/$','pages.views.videos'),
 	url(r'^repos/$', 'pages.views.repos'),
+    url(r'^blog/$', 'pages.views.blog'),
+    
     # Examples:
     # url(r'^$', 'tuss4.views.home', name='home'),
     # url(r'^tuss4/', include('tuss4.foo.urls')),

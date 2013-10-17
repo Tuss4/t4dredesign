@@ -25,8 +25,8 @@
 				<ul class="nav navbar-nav">
 					<li {% if h %}class="active"{% endif %}><a href="/">Home</a></li>
 					<li {% if a %}class="active"{% endif %}><a href="/about/">About</a></li>
-					<li><a href="/contact/">Contact</a></li>
-					<li><a href="http://tuss4dzigns.com/blog">Blog</a></li>
+					<li {% if c %}class="active"{% endif %}><a href="/contact/">Contact</a></li>
+					<li {% if b %}class="active"{% endif %}><a href="/blog/">Blog</a></li>
 					<li class="dropdown  {% if g %}active{% endif %}">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
 						<ul class="dropdown-menu">
@@ -48,7 +48,7 @@
 			</div>
 		</div>
 		<nav class="navbar navbar-default navbar-fixed-bottom">
-			<p class="navbar-text pull-right">&copy; 2013 <a href="/">Tomjo Soptame</a></p>
+			<p class="navbar-text pull-right">&copy; 2013 <a href="/">TJ Soptame</a></p>
 		</nav>
 	</body>
 </html>

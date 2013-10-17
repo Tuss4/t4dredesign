@@ -30,8 +30,10 @@ def contact(request):
 			return HttpResponseRedirect('/')
 		else:
 			return HttpResponse("Yeah that stuff wasn't valid, dude.")
+	c = True
 	context = {
-		"form": form
+		"form": form,
+		"c": c
 	}
 	return render(request, 'pages/contact.html', context)
 
@@ -89,3 +91,22 @@ def repos(request):
 		"g": g
 	}
 	return render(request, "pages/repos.html", context)	
+
+
+def blog(request):
+	url = 'https://public-api.wordpress.com/rest/v1/sites/tricking.tuss4dzigns.com/posts'
+	req = urllib2.Request(url)
+	response = urllib2.urlopen(req)
+	feed = response.read()
+	data = json.loads(feed)
+	vids = []
+	b = True
+	for i in data['posts']:
+		vids.append(
+			"<h2><a href='"+i['short_URL']+"' target='_blank'>"+i['title']+"</a></h2>\n"+i['date']+"\n"+i['content']
+			)
+	context = {
+		"b": b,
+		"posts": vids
+	}
+	return render(request, "pages/blog.html", context)
