@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-md-12 col-xs-12">
+	{% for image in gallery %}
+		<img src="/static/cgi/{{ image }}" alt="{{ image }}" title="{{ image }}" class="img-responsive" /><br />
+	{% endfor %}
+</div>
+{% endblock %}

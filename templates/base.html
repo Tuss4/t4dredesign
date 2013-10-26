@@ -27,10 +27,10 @@
 					<li {% if a %}class="active"{% endif %}><a href="/about/">About</a></li>
 					<li {% if c %}class="active"{% endif %}><a href="/contact/">Contact</a></li>
 					<li {% if b %}class="active"{% endif %}><a href="/blog/">Blog</a></li>
-					<li class="dropdown  {% if g %}active{% endif %}">
+					<li class="dropdown  {% if g %}active{% endif %}{% if p %}active{% endif %}">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolios <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="/portfolio/">CG Portfolio</a></li>
+							<li {% if p %}class="active"{% endif %}><a href="/portfolio/">CG Portfolio</a></li>
 							<li class="separator"></li>
 							<li {% if g %}class="active"{% endif %}><a href="/repos/">GitHub Repos</a></li>
 						</ul>

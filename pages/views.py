@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from pages.forms import Contact
 from videos.models import Video
-import urllib2, json
+import urllib2, json, os
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.mail import send_mail
 
@@ -39,7 +39,14 @@ def contact(request):
 
 
 def portfolio(request):
-	pass
+	path = r'g:/t4dredesign/static/cgi/'
+	gallery = os.listdir(path)
+	p = True
+	context = {
+		"p": p,
+		"gallery": gallery
+	}
+	return render(request, 'pages/portfolio.html', context)
 
 
 def videos(request):
