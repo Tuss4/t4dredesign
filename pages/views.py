@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from pages.forms import Contact
 from videos.models import Video
+from pages.funcs import get_data
 import urllib2, json, os
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.mail import send_mail
@@ -51,10 +52,7 @@ def portfolio(request):
 
 def videos(request):
 	url = 'https://gdata.youtube.com/feeds/api/users/tuss4dzigns/uploads?alt=json&orderby=published&max-results=50'
-	req = urllib2.Request(url)
-	response = urllib2.urlopen(req)
-	feed = response.read()
-	data = json.loads(feed)
+	data = get_data(url)
 	for i in data['feed']['entry']:
 		vid = Video()
 		vid.video_id = i['id']['$t'][42:]
@@ -85,10 +83,7 @@ def videos(request):
 
 def repos(request):
 	url = 'https://api.github.com/users/Tuss4/repos?sort=updated'
-	req = urllib2.Request(url)
-	response = urllib2.urlopen(req)
-	feed = response.read()
-	data = json.loads(feed)
+	data = get_data(url)
 	vids = []
 	g = True
 	for i in data:
@@ -102,10 +97,7 @@ def repos(request):
 
 def blog(request):
 	url = 'https://public-api.wordpress.com/rest/v1/sites/tricking.tuss4dzigns.com/posts'
-	req = urllib2.Request(url)
-	response = urllib2.urlopen(req)
-	feed = response.read()
-	data = json.loads(feed)
+	data = get_data(url)
 	vids = []
 	b = True
 	for i in data['posts']:

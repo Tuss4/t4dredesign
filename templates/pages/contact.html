@@ -2,6 +2,9 @@
 {% block content %}
 <div class="col-md-4"></div>
 <div class="col-md-4">
+{% if errors %}
+<p>That information wasn't valid, yo.</p>
+{% endif %}
 <form action="" method="POST">
 {{form.as_p}}
 {% csrf_token %}
